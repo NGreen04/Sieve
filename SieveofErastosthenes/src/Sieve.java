@@ -8,28 +8,37 @@ import java.util.*;
 public class Sieve {
 	
 	public static void main(String[] args) {
+		int num;
+		if (args.length == 1) {
+			num = Integer.parseInt(args[0]);
+			runSieve(num);
+		}
+		else if (args.length == 0) {
 		System.out.println("Enter an integer greater than 1: ");
 		
 		// create Scanner to obtain input from command window
 		Scanner input = new Scanner(System.in);
 		
 		// prompt the user for valid input
-			try {
-				int num = input.nextInt();
-				if(num < 2 ) {
-		    		System.out.println("You must enter an integer greater than 1.");
-		    	}
-		    	else {
-		    		runSieve(num);
-		    	}
+				try {
+					num = input.nextInt();
+					if(num < 2 ) {
+			    		System.out.println("You must enter an integer greater than 1.");
+			    	}
+			    	else {
+			    		runSieve(num);
+			    	}
+				}
+				catch(InputMismatchException e) {
+				     //Display Error message
+					 input.next();
+					 System.out.println("You must enter an integer greater than 1.");
+				}
+			input.close();
 			}
-			catch(InputMismatchException e) {
-			     //Display Error message
-				 input.next();
-				 System.out.println("You must enter an integer greater than 1.");
-			}
-		input.close();
+		else {System.out.println("You must enter an integer greater than 1.");}
 		}
+
 	
 	//sieve method
 	public static void runSieve(int num) {
