@@ -63,7 +63,7 @@ public class Sieve {
 		
 		//display the results
 		System.out.println("");
-		System.out.println("The prime numbers are:");
+		System.out.println("The prime numbers less than or equal to " + num + " are:");
 		for(int i = 2; i < intArray.length; i++) {
 			if(intArray[i] == 0) {
 				System.out.println(i);
