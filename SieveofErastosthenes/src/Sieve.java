@@ -20,9 +20,9 @@ public class Sieve {
 		    		runSieve(num);
 		    	}
 			}
-			catch(InputMismatchException e) {
+			catch(NumberFormatException e) {
 			     //Display Error message
-				 System.out.println("You haven't entered an integer.  You must enter an integer greater than 1.");
+				 System.out.println("You haven't entered an integer.  You must enter a single integer greater than 1.");
 			}
 		}
 		else if (args.length == 0) {
@@ -35,7 +35,7 @@ public class Sieve {
 				try {
 					num = input.nextInt();
 					if(num < 2 ) {
-			    		System.out.println("You must enter an integer greater than 1.");
+			    		System.out.println("You must enter a single integer greater than 1.");
 			    	}
 			    	else {
 			    		runSieve(num);
@@ -44,11 +44,11 @@ public class Sieve {
 				catch(InputMismatchException e) {
 				     //Display Error message
 					 input.next();
-					 System.out.println("You must enter an integer greater than 1.");
+					 System.out.println("You must enter a single integer greater than 1.");
 				}
 			input.close();
 			}
-		else {System.out.println("You must enter an integer greater than 1.");}
+		else {System.out.println("You've entered too many arguments.  You must enter a single integer greater than 1.");}
 		}
 
 	
