@@ -11,8 +11,8 @@ public class Sieve {
 	public static void main(String[] args) {
 		int num;
 		if (args.length == 1) {
-			num = Integer.parseInt(args[0]);
 			try {
+				num = Integer.parseInt(args[0]);
 				if(num < 2 ) {
 		    		System.out.println("You must enter an integer greater than 1.");
 		    	}
@@ -22,7 +22,7 @@ public class Sieve {
 			}
 			catch(InputMismatchException e) {
 			     //Display Error message
-				 System.out.println("You must enter an integer greater than 1.");
+				 System.out.println("You haven't entered an integer.  You must enter an integer greater than 1.");
 			}
 		}
 		else if (args.length == 0) {
