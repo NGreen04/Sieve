@@ -1,0 +1,38 @@
+pipeline { 
+    agent any 
+    stages {
+        stage('Clone repo') {
+            steps {
+                bat 'if exist Sieve rmdir /s /q Sieve  2>&1'
+                bat 'git clone https://github.com/NGreen04/Sieve.git'
+                dir('Sieve') {
+                    bat 'git clean -fd'
+                }
+            }
+        }
+        stage('Build') { 
+            steps { 
+                dir('Sieve/SieveofErastosthenes') {
+                    bat 'ant clean'
+                    bat 'ant compile'
+                }
+            }
+        }
+        stage('Test runs') { 
+            steps { 
+                dir('Sieve/SieveofErastosthenes/build') {
+                    echo 'POSITIVE TEST'
+                    bat 'java Sieve 20'
+                    echo 'NEGATIVE TEST - INPUT 0'
+                    bat 'java Sieve 0'
+                    echo 'NEGATIVE TEST - INPUT -20'
+                    bat 'java Sieve -20'
+                    echo 'NEGATIVE TEST - TOO MANY INPUTS'
+                    bat 'java Sieve 20 50'
+                    echo 'NEGATIVE TEST - WRONG DATA TYPE'
+                    bat 'java Sieve TWENTY'
+                }
+            }
+        }
+    }
+}
