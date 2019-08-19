@@ -13,7 +13,7 @@ pipeline {
             steps { 
                 dir('Sieve/SieveofErastosthenes/build') {
                     echo 'POSITIVE TEST'
-                    bat 'jav Sieve 50'
+                    bat 'java Sieve 50'
                     echo 'NEGATIVE TEST - INPUT 0'
                     bat 'java Sieve 0'
                     echo 'NEGATIVE TEST - INPUT -20'
