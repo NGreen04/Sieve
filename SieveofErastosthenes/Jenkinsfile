@@ -1,15 +1,15 @@
 pipeline { 
     agent any 
     stages {
-        stage('Clone repo') {
-            steps {
-                bat 'if exist Sieve rmdir /s /q Sieve  2>&1'
-                bat 'git clone https://github.com/NGreen04/Sieve.git'
-                dir('Sieve') {
-                    bat 'git clean -fd'
-                }
-            }
-        }
+        //stage('Clone repo') {
+            //steps {
+                //bat 'if exist Sieve rmdir /s /q Sieve  2>&1'
+                //bat 'git clone https://github.com/NGreen04/Sieve.git'
+                //dir('Sieve') {
+                //    bat 'git clean -fd'
+                //}
+            //}
+        //}
         stage('Build') { 
             steps { 
                 dir('Sieve/SieveofErastosthenes') {
